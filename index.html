@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latin Grammar Hub</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --text: #c9d1d9;
+            --accent: #58a6ff;
+            --border: #30363d;
+            --btn-hover: #21262d;
+            --coming-soon: #8b949e;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 450px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+
+        h1 { font-size: 2rem; margin-bottom: 24px; color: white; }
+        h2 { font-size: 1.2rem; color: var(--accent); margin-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+
+        .menu-section { margin-bottom: 30px; }
+        
+        .btn-grid {
+            display: grid;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        button {
+            background-color: var(--card-bg);
+            color: var(--accent);
+            border: 1px solid var(--border);
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--btn-hover);
+            border-color: #8b949e;
+        }
+
+        .coming-soon {
+            color: var(--coming-soon);
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .hidden { display: none; }
+
+        .back-btn {
+            margin-bottom: 20px;
+            font-size: 0.8rem;
+            color: var(--coming-soon);
+            background: transparent;
+            border: none;
+            padding: 0;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div id="main-menu" class="container">
+    <h1>Latin Grammar</h1>
+
+    <div class="menu-section">
+        <h2>Moods</h2>
+        <div class="btn-grid">
+            <button onclick="showPage('indicative-page')">Indicative</button>
+            <button class="coming-soon">Subjunctive (Locked)</button>
+            <button class="coming-soon">Imperative (Locked)</button>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>Other</h2>
+        <div class="btn-grid">
+            <button onclick="showPage('irregular-page')">Irregular Words (possum, hic, etc.)</button>
+            <button class="coming-soon">[COMING SOON] Grammar Quiz</button>
+        </div>
+    </div>
+</div>
+
+<div id="indicative-page" class="container hidden">
+    <button class="back-btn" onclick="showPage('main-menu')">← Back to Menu</button>
+    <h1>Indicative</h1>
+    <p>Select a category to study:</p>
+    
+    <div class="btn-grid">
+        <button onclick="alert('Select Declension: 1st, 2nd, 3rd...')">Nouns</button>
+        <button onclick="alert('Select Adjective Type: 1st/2nd or 3rd Decl.')">Adjectives</button>
+        <button onclick="alert('Select Conjugation: 1st, 2nd, 3rd, 3rd-io, 4th')">Verbs</button>
+        <button onclick="alert('Select Case: Nom, Gen, Dat, Acc, Abl')">Cases</button>
+    </div>
+</div>
+
+<div id="irregular-page" class="container hidden">
+    <button class="back-btn" onclick="showPage('main-menu')">← Back to Menu</button>
+    <h1>Irregulars</h1>
+    <div class="btn-grid">
+        <button onclick="alert('Possum, Potui...')">Possum</button>
+        <button onclick="alert('Hic, Haec, Hoc...')">Hic / Demonstratives</button>
+        <button onclick="alert('Sum, Esse...')">Sum</button>
+    </div>
+</div>
+
+<script>
+    function showPage(pageId) {
+        // Hide all containers
+        document.querySelectorAll('.container').forEach(div => {
+            div.classList.add('hidden');
+        });
+        // Show the selected container
+        document.getElementById(pageId).classList.remove('hidden');
+    }
+</script>
+
+</body>
+</html>
