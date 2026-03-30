@@ -2,144 +2,163 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latin Grammar Hub</title>
+    <title>Latin Hub: Subjunctive & Relatives</title>
     <style>
         :root {
             --bg: #0d1117;
-            --card-bg: #161b22;
+            --card: #161b22;
             --text: #c9d1d9;
             --accent: #58a6ff;
             --border: #30363d;
-            --btn-hover: #21262d;
-            --coming-soon: #8b949e;
+            --err: #f85149;
+            --ok: #3fb950;
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            width: 100%;
-            max-width: 450px;
-            padding: 32px;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-        }
-
-        h1 { font-size: 2rem; margin-bottom: 24px; color: white; }
-        h2 { font-size: 1.2rem; color: var(--accent); margin-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
-
-        .menu-section { margin-bottom: 30px; }
+        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { background: var(--card); border: 1px solid var(--border); border-radius: 8px; max-width: 900px; margin: auto; padding: 24px; }
+        h1, h2 { text-align: center; color: white; }
         
-        .btn-grid {
-            display: grid;
-            gap: 12px;
-            margin-top: 15px;
-        }
+        .tab-box { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; table-layout: fixed; }
+        th, td { border: 1px solid var(--border); padding: 10px; text-align: center; font-size: 0.9rem; }
+        th { background: #21262d; color: var(--accent); }
+        
+        input { width: 90%; background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; text-align: center; font-size: 1rem; }
+        input:focus { outline: none; border-bottom: 2px solid var(--accent); }
+        
+        .wrong { background: rgba(248, 81, 73, 0.1); border-bottom: 1px solid var(--err); }
+        .correct { background: rgba(63, 185, 80, 0.1); border-bottom: 1px solid var(--ok); }
+        .ans-hint { display: block; font-size: 0.75rem; color: var(--err); margin-top: 4px; font-weight: bold; }
 
-        button {
-            background-color: var(--card-bg);
-            color: var(--accent);
-            border: 1px solid var(--border);
-            padding: 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        button:hover {
-            background-color: var(--btn-hover);
-            border-color: #8b949e;
-        }
-
-        .coming-soon {
-            color: var(--coming-soon);
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-
-        .hidden { display: none; }
-
-        .back-btn {
-            margin-bottom: 20px;
-            font-size: 0.8rem;
-            color: var(--coming-soon);
-            background: transparent;
-            border: none;
-            padding: 0;
-            text-decoration: underline;
-        }
+        .btn-box { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
+        button { background: #21262d; color: var(--accent); border: 1px solid var(--border); padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+        .check-btn { background: var(--accent); color: white; border: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div id="main-menu" class="container">
-    <h1>Latin Grammar</h1>
-
-    <div class="menu-section">
-        <h2>Moods</h2>
-        <div class="btn-grid">
-            <button onclick="showPage('indicative-page')">Indicative</button>
-            <button class="coming-soon">Subjunctive (Locked)</button>
-            <button class="coming-soon">Imperative (Locked)</button>
-        </div>
+<div class="container">
+    <div class="tab-box">
+        <button onclick="showTab('subj')">Imperfect Subjunctive</button>
+        <button onclick="showTab('rel')">Relative Pronouns</button>
     </div>
 
-    <div class="menu-section">
-        <h2>Other</h2>
-        <div class="btn-grid">
-            <button onclick="showPage('irregular-page')">Irregular Words (possum, hic, etc.)</button>
-            <button class="coming-soon">[COMING SOON] Grammar Quiz</button>
-        </div>
+    <div id="tab-subj">
+        <h1>Imperfect Subjunctive Active</h1>
+        <p style="text-align:center; color:#8b949e;">Pattern: Present Infinitive + m, s, t, mus, tis, nt</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Person</th>
+                    <th>1st (-are)</th>
+                    <th>2nd (-ere)</th>
+                    <th>3rd (-ere)</th>
+                    <th>4th (-ire)</th>
+                </tr>
+            </thead>
+            <tbody id="subj-body"></tbody>
+        </table>
     </div>
-</div>
 
-<div id="indicative-page" class="container hidden">
-    <button class="back-btn" onclick="showPage('main-menu')">← Back to Menu</button>
-    <h1>Indicative</h1>
-    <p>Select a category to study:</p>
-    
-    <div class="btn-grid">
-        <button onclick="alert('Select Declension: 1st, 2nd, 3rd...')">Nouns</button>
-        <button onclick="alert('Select Adjective Type: 1st/2nd or 3rd Decl.')">Adjectives</button>
-        <button onclick="alert('Select Conjugation: 1st, 2nd, 3rd, 3rd-io, 4th')">Verbs</button>
-        <button onclick="alert('Select Case: Nom, Gen, Dat, Acc, Abl')">Cases</button>
+    <div id="tab-rel" class="hidden">
+        <h1>Relative Pronoun: qui, quae, quod</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Case</th>
+                    <th>Masculine</th>
+                    <th>Feminine</th>
+                    <th>Neuter</th>
+                </tr>
+            </thead>
+            <tbody id="rel-body"></tbody>
+        </table>
     </div>
-</div>
 
-<div id="irregular-page" class="container hidden">
-    <button class="back-btn" onclick="showPage('main-menu')">← Back to Menu</button>
-    <h1>Irregulars</h1>
-    <div class="btn-grid">
-        <button onclick="alert('Possum, Potui...')">Possum</button>
-        <button onclick="alert('Hic, Haec, Hoc...')">Hic / Demonstratives</button>
-        <button onclick="alert('Sum, Esse...')">Sum</button>
+    <div class="btn-box">
+        <button class="check-btn" onclick="checkCurrentTab()">Check Answers</button>
+        <button onclick="resetCurrentTab()">Reset</button>
     </div>
 </div>
 
 <script>
-    function showPage(pageId) {
-        // Hide all containers
-        document.querySelectorAll('.container').forEach(div => {
-            div.classList.add('hidden');
-        });
-        // Show the selected container
-        document.getElementById(pageId).classList.remove('hidden');
-    }
-</script>
+    const subjData = [
+        ["arem", "erem", "erem", "irem"],
+        ["ares", "eres", "eres", "ires"],
+        ["aret", "eret", "eret", "iret"],
+        ["aremus", "eremus", "eremus", "iremus"],
+        ["aretis", "eretis", "eretis", "iretis"],
+        ["arent", "erent", "erent", "irent"]
+    ];
 
+    const relData = [
+        { label: "Nom. Sing.", vals: ["qui", "quae", "quod"] },
+        { label: "Acc. Sing.", vals: ["quem", "quam", "quod"] },
+        { label: "Nom. Plur.", vals: ["qui", "quae", "quae"] },
+        { label: "Acc. Plur.", vals: ["quos", "quas", "quae"] }
+    ];
+
+    let currentTab = 'subj';
+
+    function showTab(name) {
+        currentTab = name;
+        document.getElementById('tab-subj').classList.toggle('hidden', name !== 'subj');
+        document.getElementById('tab-rel').classList.toggle('hidden', name !== 'rel');
+        renderTables();
+    }
+
+    function renderTables() {
+        // Render Subjunctive
+        const sBody = document.getElementById('subj-body');
+        sBody.innerHTML = '';
+        subjData.forEach((row, r) => {
+            let tr = `<tr><td><b>${r+1}${r<3?'s':'p'}</b></td>`;
+            row.forEach((v, c) => { tr += `<td><div id="cs-${r}-${c}"><input type="text" id="is-${r}-${c}"></div></td>`; });
+            sBody.innerHTML += tr + `</tr>`;
+        });
+
+        // Render Relatives
+        const rBody = document.getElementById('rel-body');
+        rBody.innerHTML = '';
+        relData.forEach((row, r) => {
+            let tr = `<tr><td><b>${row.label}</b></td>`;
+            row.vals.forEach((v, c) => { tr += `<td><div id="cr-${r}-${c}"><input type="text" id="ir-${r}-${c}"></div></td>`; });
+            rBody.innerHTML += tr + `</tr>`;
+        });
+    }
+
+    function checkCurrentTab() {
+        if (currentTab === 'subj') {
+            subjData.forEach((row, r) => {
+                row.forEach((correct, c) => validate(`is-${r}-${c}`, `cs-${r}-${c}`, correct));
+            });
+        } else {
+            relData.forEach((row, r) => {
+                row.forEach((correct, c) => validate(`ir-${r}-${c}`, `cr-${r}-${c}`, correct)); // Fixed index logic
+            });
+        }
+    }
+
+    function validate(inputId, contId, correct) {
+        const input = document.getElementById(inputId);
+        const cont = document.getElementById(contId);
+        if (!input) return;
+        const val = input.value.trim().toLowerCase();
+        input.classList.remove('correct', 'wrong');
+        const old = cont.querySelector('.ans-hint'); if (old) old.remove();
+
+        if (val === correct) { input.classList.add('correct'); }
+        else {
+            input.classList.add('wrong');
+            const span = document.createElement('span');
+            span.className = 'ans-hint';
+            span.innerText = correct;
+            cont.appendChild(span);
+        }
+    }
+
+    function resetCurrentTab() { renderTables(); }
+
+    showTab('subj');
+</script>
 </body>
 </html>
