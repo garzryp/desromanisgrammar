@@ -3,52 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latin Grammar | Des Romanis Unofficial</title>
+    <title>Latin Grammar Hub | Perfect System Update</title>
     <style>
         :root {
-            --bg: #0d1117;
-            --side: #161b22;
-            --card: #0d1117;
-            --text: #c9d1d9;
-            --accent: #58a6ff;
-            --border: #30363d;
-            --err: #f85149;
-            --ok: #3fb950;
+            --bg: #0d1117; --side: #161b22; --card: #0d1117; --text: #c9d1d9;
+            --accent: #58a6ff; --border: #30363d; --err: #f85149; --ok: #3fb950; --gold: #d29922;
         }
-
         body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; display: flex; height: 100vh; overflow: hidden; }
-        
-        /* Sidebar */
         .sidebar { width: 280px; background: var(--side); border-right: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; gap: 5px; overflow-y: auto; }
-        .sidebar h2 { font-size: 1.1rem; color: white; margin: 20px 0 10px 0; border-bottom: 1px solid var(--border); padding-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-btn { background: transparent; border: none; color: var(--text); text-align: left; padding: 10px; border-radius: 6px; cursor: pointer; transition: 0.2s; font-size: 0.9rem; }
+        .sidebar h2 { font-size: 0.9rem; color: #8b949e; margin: 15px 0 5px 0; border-bottom: 1px solid var(--border); padding-bottom: 5px; text-transform: uppercase; }
+        .nav-btn { background: transparent; border: none; color: var(--text); text-align: left; padding: 10px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
         .nav-btn:hover { background: #21262d; color: var(--accent); }
         .nav-btn.active { background: #1f6feb; color: white; font-weight: bold; }
-
-        /* Main Content */
+        
         .main { flex: 1; overflow-y: auto; padding: 40px; display: flex; flex-direction: column; align-items: center; }
         .container { background: var(--card); border: 1px solid var(--border); border-radius: 8px; width: 100%; max-width: 950px; padding: 32px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
-        .hidden { display: none; }
         
-        h1 { margin-top: 0; color: white; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
-        p.subtitle { color: #8b949e; margin-bottom: 25px; }
-
-        table { width: 100%; border-collapse: collapse; background: #0d1117; table-layout: fixed; margin-top: 10px; }
-        th, td { border: 1px solid var(--border); padding: 12px; text-align: center; }
-        th { background: #21262d; color: var(--accent); font-size: 0.85rem; }
+        .instruction-box { background: rgba(210, 153, 34, 0.1); border: 1px solid var(--gold); color: var(--gold); padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 0.95rem; line-height: 1.5; }
         
-        input { width: 90%; background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; text-align: center; font-size: 1rem; padding: 4px; }
+        h1 { margin-top: 0; color: white; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; table-layout: fixed; }
+        th, td { border: 1px solid var(--border); padding: 10px; text-align: center; }
+        th { background: #21262d; color: var(--accent); }
+        
+        input { width: 90%; background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; text-align: center; font-size: 1.1rem; }
         input:focus { outline: none; border-bottom: 2px solid var(--accent); }
         
-        .wrong { background: rgba(248, 81, 73, 0.1) !important; border: 1px solid var(--err) !important; border-radius: 4px; }
-        .correct { background: rgba(63, 185, 80, 0.1) !important; border: 1px solid var(--ok) !important; border-radius: 4px; }
-        .ans-hint { display: block; font-size: 0.75rem; color: var(--err); margin-top: 5px; font-weight: bold; }
-
+        .wrong { background: rgba(248, 81, 73, 0.1) !important; border: 1px solid var(--err) !important; }
+        .correct { background: rgba(63, 185, 80, 0.1) !important; border: 1px solid var(--ok) !important; }
+        .ans-hint { display: block; font-size: 0.75rem; color: var(--err); margin-top: 4px; font-weight: bold; }
+        
         .btn-box { display: flex; gap: 15px; margin-top: 30px; justify-content: center; }
-        button.action { background: #21262d; color: var(--accent); border: 1px solid var(--border); padding: 10px 25px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.2s; }
-        button.action:hover { border-color: #8b949e; }
+        button.action { background: #21262d; color: var(--accent); border: 1px solid var(--border); padding: 10px 25px; border-radius: 6px; cursor: pointer; font-weight: bold; }
         button.check { background: var(--accent); color: white; border: none; }
-        button.check:hover { background: #478be6; }
     </style>
 </head>
 <body>
@@ -56,37 +43,35 @@
 <div class="sidebar">
     <h1 style="font-size: 1.4rem; color: var(--accent);">🏛️ LatinHub</h1>
     
-    <h2>Verbs (Active)</h2>
-    <button class="nav-btn active" onclick="loadView('verb-pres')">Present Indicative</button>
+    <h2>Perfect System</h2>
+    <button class="nav-btn active" onclick="loadView('perf-sys')">Perfect & Pluperfect</button>
+    
+    <h2>Present System</h2>
+    <button class="nav-btn" onclick="loadView('verb-pres')">Present Indicative</button>
     <button class="nav-btn" onclick="loadView('verb-impf')">Imperfect Indicative</button>
     <button class="nav-btn" onclick="loadView('verb-subj')">Imperfect Subjunctive</button>
     
     <h2>Irregulars</h2>
-    <button class="nav-btn" onclick="loadView('irr-eo')">Eo, Ire (To Go)</button>
+    <button class="nav-btn" onclick="loadView('irr-eo')">Eo, Ire</button>
     <button class="nav-btn" onclick="loadView('irr-volo')">Volo & Nolo</button>
-    <button class="nav-btn" onclick="loadView('irr-possum')">Possum & Sum</button>
-
+    
     <h2>Pronouns</h2>
-    <button class="nav-btn" onclick="loadView('pro-pers')">Personal (Ego, Tu...)</button>
+    <button class="nav-btn" onclick="loadView('pro-pers')">Personal (Ego/Tu)</button>
     <button class="nav-btn" onclick="loadView('pro-demo')">Is, Ea, Id</button>
-    <button class="nav-btn" onclick="loadView('pro-hic')">Hic & Ille</button>
-    <button class="nav-btn" onclick="loadView('pro-rel')">Relative (Qui...)</button>
-
-    <h2>Nouns & More</h2>
-    <button class="nav-btn" onclick="loadView('noun-decl')">Nouns (1st/2nd/3rd)</button>
-    <button class="nav-btn" onclick="loadView('participle')">Present Participles</button>
+    <button class="nav-btn" onclick="loadView('pro-rel')">Relative (Qui)</button>
 </div>
 
 <div class="main">
     <div class="container">
-        <h1 id="view-title">Present Indicative</h1>
-        <p class="subtitle" id="view-desc">Master the four regular conjugations.</p>
+        <h1 id="view-title">Perfect System</h1>
+        
+        <div id="instruction-container"></div>
 
         <table id="master-table">
             <thead id="table-head"></thead>
             <tbody id="table-body"></tbody>
         </table>
-
+        
         <div class="btn-box">
             <button class="action check" onclick="checkAll()">Check Answers</button>
             <button class="action" onclick="resetView()">Reset</button>
@@ -95,129 +80,77 @@
 </div>
 
 <script>
-    let currentView = 'verb-pres';
+    let currentView = 'perf-sys';
 
     const library = {
-        'verb-pres': {
-            title: "Present Indicative Active",
-            desc: "The 'O, S, T' endings for all 4 conjugations.",
-            heads: ["Person", "1st (-are)", "2nd (-ere)", "3rd (-ere)", "4th (-ire)"],
+        'perf-sys': {
+            title: "Perfect & Pluperfect Active",
+            info: "To insert these into latin words, make sure to get the 3rd principal part, remove the ending 'i' and insert the ending as shown.",
+            heads: ["Person", "Perfect", "Pluperfect"],
             keys: [
-                ["o", "eo", "o", "io"], ["as", "es", "is", "is"], ["at", "et", "it", "it"],
-                ["amus", "emus", "imus", "imus"], ["atis", "etis", "itis", "itis"], ["ant", "ent", "unt", "iunt"]
+                ["i", "eram"], ["isti", "eras"], ["it", "erat"],
+                ["imus", "eramus"], ["istis", "eratis"], ["erunt", "erant"]
             ]
         },
-        'verb-impf': {
-            title: "Imperfect Indicative Active",
-            desc: "Look for the -ba- marker.",
-            heads: ["Person", "1st", "2nd", "3rd", "4th"],
-            keys: [
-                ["abam", "ebam", "ebam", "iebam"], ["abas", "ebas", "ebas", "iebas"], ["abat", "ebat", "ebat", "iebat"],
-                ["abamus", "ebamus", "ebamus", "iebamus"], ["abatis", "ebatis", "ebatis", "iebatis"], ["abant", "ebant", "ebant", "iebant"]
-            ]
-        },
-        'verb-subj': {
-            title: "Imperfect Subjunctive",
-            desc: "Infinitive + Personal Endings.",
-            heads: ["Person", "1st (-arem)", "2nd (-erem)", "3rd (-erem)", "4th (-irem)"],
-            keys: [
-                ["arem", "erem", "erem", "irem"], ["ares", "eres", "eres", "ires"], ["aret", "eret", "eret", "iret"],
-                ["aremus", "eremus", "eremus", "iremus"], ["aretis", "eretis", "eretis", "iretis"], ["arent", "erent", "erent", "irent"]
-            ]
-        },
-        'irr-eo': {
-            title: "Irregular: Eo, Ire",
-            desc: "Notice the E/I stem shifts.",
-            heads: ["Person", "Present", "Imperfect", "Perfect", "Pluperfect"],
-            keys: [
-                ["eo", "ibam", "ii", "ieram"], ["is", "ibas", "isti", "ieras"], ["it", "ibat", "iit", "ierat"],
-                ["imus", "ibamus", "iimus", "ieramus"], ["itis", "ibatis", "istis", "ieratis"], ["eunt", "ibant", "ierunt", "ierant"]
-            ]
-        },
-        'pro-pers': {
-            title: "Personal Pronouns",
-            desc: "I, You, We, Y'all.",
-            heads: ["Case", "1st Sing", "2nd Sing", "1st Plur", "2nd Plur"],
-            keys: [
-                ["ego", "tu", "nos", "vos"], ["me", "te", "nos", "vos"], ["mihi", "tibi", "nobis", "vobis"], ["mei", "tui", "nostrum", "vostrum"]
-            ],
-            labels: ["Nom", "Acc", "Dat", "Gen"]
-        },
-        'pro-demo': {
-            title: "Is, Ea, Id",
-            desc: "The standard 'He, She, It' pronouns.",
-            heads: ["Case", "Masculine", "Feminine", "Neuter"],
-            keys: [
-                ["eum", "eam", "id"], ["eius", "eius", "eius"], ["ei", "ei", "ei"],
-                ["eos", "eas", "ea"], ["eorum", "earum", "eorum"], ["eis", "eis", "eis"]
-            ],
-            labels: ["Acc Sing", "Gen Sing", "Dat Sing", "Acc Plur", "Gen Plur", "Dat Plur"]
-        },
-        'pro-rel': {
-            title: "Relative Pronouns",
-            desc: "Qui, Quae, Quod (Who/Which).",
-            heads: ["Case", "Masculine", "Feminine", "Neuter"],
-            keys: [
-                ["qui", "quae", "quod"], ["quem", "quam", "quod"], ["qui", "quae", "quae"], ["quos", "quas", "quae"]
-            ],
-            labels: ["Nom Sing", "Acc Sing", "Nom Plur", "Acc Plur"]
-        }
+        'verb-pres': { title: "Present Indicative", heads: ["Person", "1st", "2nd", "3rd", "4th"], keys: [["o","eo","o","io"], ["as","es","is","is"], ["at","et","it","it"], ["amus","emus","imus","imus"], ["atis","etis","itis","itis"], ["ant","ent","unt","iunt"]] },
+        'verb-impf': { title: "Imperfect Indicative", heads: ["Person", "1st", "2nd", "3rd", "4th"], keys: [["abam","ebam","ebam","iebam"], ["abas","ebas","ebas","iebas"], ["abat","ebat","ebat","iebat"], ["abamus","ebamus","ebamus","iebamus"], ["abatis","ebatis","ebatis","iebatis"], ["abant","ebant","ebant","iebant"]] },
+        'verb-subj': { title: "Imperfect Subjunctive", heads: ["Person", "1st", "2nd", "3rd", "4th"], keys: [["arem","erem","erem","irem"], ["ares","eres","eres","ires"], ["aret","eret","eret","iret"], ["aremus","eremus","eremus","iremus"], ["aretis","eretis","eretis","iretis"], ["arent","erent","erent","irent"]] },
+        'irr-eo': { title: "Eo, Ire (To Go)", heads: ["Person", "Pres", "Impf", "Perf", "Plup"], keys: [["eo","ibam","ii","ieram"], ["is","ibas","isti","ieras"], ["it","ibat","iit","ierat"], ["imus","ibamus","iimus","ieramus"], ["itis","ibatis","istis","ieratis"], ["eunt","ibant","ierunt","ierant"]] },
+        'irr-volo': { title: "Volo & Nolo", heads: ["Person", "Volo", "Nolo"], keys: [["volo","nolo"], ["vis","non vis"], ["vult","non vult"], ["volumus","nolumus"], ["vultis","non vultis"], ["volunt","nolunt"]] },
+        'pro-pers': { title: "Personal Pronouns", heads: ["Case", "1s", "2s", "1p", "2p"], labels: ["Nom","Acc","Dat","Gen"], keys: [["ego","tu","nos","vos"], ["me","te","nos","vos"], ["mihi","tibi","nobis","vobis"], ["mei","tui","nostrum","vostrum"]] },
+        'pro-demo': { title: "Is, Ea, Id", heads: ["Case", "Masc", "Fem", "Neut"], labels: ["Acc S","Gen S","Dat S","Acc P","Gen P","Dat P"], keys: [["eum","eam","id"], ["eius","eius","eius"], ["ei","ei","ei"], ["eos","eas","ea"], ["eorum","earum","eorum"], ["eis","eis","eis"]] },
+        'pro-rel': { title: "Relative: Qui, Quae, Quod", heads: ["Case", "Masc", "Fem", "Neut"], labels: ["Nom S","Acc S","Nom P","Acc P"], keys: [["qui","quae","quod"], ["quem","quam","quod"], ["qui","quae","quae"], ["quos","quas","quae"]] }
     };
 
-    function loadView(viewID) {
-        currentView = viewID;
-        const config = library[viewID];
-        if(!config) return;
-
-        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-        event.target.classList.add('active');
+    function loadView(id) {
+        currentView = id; const config = library[id];
+        
+        // Sidebar active state
+        document.querySelectorAll('.nav-btn').forEach(b => {
+            b.classList.toggle('active', b.getAttribute('onclick').includes(id));
+        });
 
         document.getElementById('view-title').innerText = config.title;
-        document.getElementById('view-desc').innerText = config.desc;
-
-        const head = document.getElementById('table-head');
-        head.innerHTML = `<tr>${config.heads.map(h => `<th>${h}</th>`).join('')}</tr>`;
-
-        const body = document.getElementById('table-body');
-        body.innerHTML = '';
-        const rowLabels = config.labels || ["1st S", "2nd S", "3rd S", "1st P", "2nd P", "3rd P"];
         
+        // Handle instructions
+        const instrCont = document.getElementById('instruction-container');
+        instrCont.innerHTML = config.info ? `<div class="instruction-box">💡 <b>Rule:</b> ${config.info}</div>` : '';
+
+        // Table headers
+        document.getElementById('table-head').innerHTML = `<tr>${config.heads.map(h => `<th>${h}</th>`).join('')}</tr>`;
+        
+        // Table body
+        const body = document.getElementById('table-body'); body.innerHTML = '';
+        const rows = config.labels || ["1s", "2s", "3s", "1p", "2p", "3p"];
         config.keys.forEach((row, r) => {
-            let html = `<tr><td><b>${rowLabels[r]}</b></td>`;
-            row.forEach((val, c) => {
-                html += `<td><div id="cell-${r}-${c}"><input type="text" id="ans-${r}-${c}"></div></td>`;
-            });
+            let html = `<tr><td><b>${rows[r]}</b></td>`;
+            row.forEach((val, c) => html += `<td><div id="cell-${r}-${c}"><input type="text" id="ans-${r}-${c}" autocomplete="off"></div></td>`);
             body.innerHTML += html + `</tr>`;
         });
     }
 
     function checkAll() {
-        const config = library[currentView];
-        config.keys.forEach((row, r) => {
+        library[currentView].keys.forEach((row, r) => {
             row.forEach((correct, c) => {
                 const input = document.getElementById(`ans-${r}-${c}`);
                 const container = document.getElementById(`cell-${r}-${c}`);
                 const val = input.value.trim().toLowerCase();
-
                 input.classList.remove('correct', 'wrong');
                 const old = container.querySelector('.ans-hint'); if(old) old.remove();
-
-                if(val === correct) {
-                    input.classList.add('correct');
-                } else {
-                    input.classList.add('wrong');
-                    const span = document.createElement('span');
-                    span.className = 'ans-hint';
-                    span.innerText = correct;
-                    container.appendChild(span);
+                if(val === correct) input.classList.add('correct');
+                else { 
+                    input.classList.add('wrong'); 
+                    const span = document.createElement('span'); 
+                    span.className = 'ans-hint'; 
+                    span.innerText = correct; 
+                    container.appendChild(span); 
                 }
             });
         });
     }
 
     function resetView() { loadView(currentView); }
-
-    window.onload = () => loadView('verb-pres');
+    window.onload = () => loadView('perf-sys');
 </script>
 </body>
 </html>
